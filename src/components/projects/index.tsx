@@ -68,7 +68,7 @@ export function Projects() {
                 >
                   {isActive && (
                     <div className="absolute inset-0 pointer-events-none overflow-hidden z-50">
-                      <div className="absolute top-0 left-[-100%] w-[60%] h-full bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 animate-shine" />
+                      <div className="absolute top-0 -left-full w-[60%] h-full bg-linear-to-r from-transparent via-white/30 to-transparent skew-x-12 animate-shine" />
                     </div>
                   )}
                   <div className="w-full flex items-center justify-center ">
@@ -99,7 +99,7 @@ export function Projects() {
                         {project.stack.map((tech, index) => (
                           <li key={index}>
                             <Image
-                              src={`/lang-icons/${tech}.png`}
+                              src={tech}
                               alt={tech}
                               width={22}
                               height={22}
