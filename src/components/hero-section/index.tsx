@@ -54,7 +54,7 @@ export function HeroSection() {
         <div className="absolute inset-0 rounded-full border border-slate-800/90 scale-110 animate-pulse delay-105"></div>
 
         <Image
-          src="/perfil - copia.png"
+          src="/arthurzambao.png"
           alt="Arthur Zambão"
           width={300}
           height={300}
