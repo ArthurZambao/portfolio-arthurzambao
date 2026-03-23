@@ -20,6 +20,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Arthur Zambão | Full-Stack Developer",
   description: "Portfólio pessoal",
+  icons:{
+    icon: "/logo.png",
+  }
 };
 
 export default function RootLayout({

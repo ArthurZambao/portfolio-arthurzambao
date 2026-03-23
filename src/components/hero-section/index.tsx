@@ -13,7 +13,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="flex flex-col items-center md:flex-row md:items-start gap-8 py-12"
+      className="flex flex-col-reverse items-center md:flex-row md:items-start gap-8 py-12"
     >
       <div className="flex-1 space-y-4">
         <h1 className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-cyan-400 to-cyan-300 drop-shadow-[0_0_15px_rgba(34,211,238,0.6)]">
@@ -23,7 +23,6 @@ export function HeroSection() {
           {typedTitle}
           <span className="inline-block w-0.5 h-[1.1em] bg-cyan-400 ml-1 animation-cursor align-middle"></span>
         </h2>
-        Contato:
         <div className="w-min">
           <div className="flex flex-col">
             {socialIcons.map((icon) => (

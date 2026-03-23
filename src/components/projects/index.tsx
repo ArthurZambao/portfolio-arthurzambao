@@ -99,7 +99,7 @@ export function Projects() {
                         {project.stack.map((tech, index) => (
                           <li key={index}>
                             <Image
-                              src={tech}
+                              src={`/${tech}.png`}
                               alt={tech}
                               width={22}
                               height={22}
@@ -122,7 +122,7 @@ export function Projects() {
           <span
             key={index}
             onClick={() => api?.scrollTo(index)}
-            className={`cursor-pointer text-xl ${index + 1 === current ? "text-cyan-400" : ""}`}
+            className={`cursor-pointer text-2xl sm:text-xl ${index + 1 === current ? "text-cyan-400" : ""}`}
           >
             ●
           </span>

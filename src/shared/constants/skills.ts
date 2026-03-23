@@ -1,5 +1,5 @@
 export const skills = [
-  { name: 'Next.js', icon: '/next.png', color: 'group-hover:text-slate-500', hover: 'hover:border-black' },
+  { name: 'Next.js', icon: '/next.png', color: 'group-hover:text-black', hover: 'hover:border-black' },
   { name: 'React', icon: '/react.png', color: 'group-hover:text-cyan-400', hover: 'hover:border-cyan-500' },
   { name: 'MongoDB', icon: '/mongodb.png', color: 'group-hover:text-teal-800', hover: 'hover:border-teal-800' },
   { name: 'MySQL', icon: '/mysql.png', color: 'group-hover:text-blue-500', hover: 'hover:border-blue-500' },
