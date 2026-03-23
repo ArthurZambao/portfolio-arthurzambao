@@ -16,7 +16,7 @@ export function ProgramHabilities() {
           >
             <div className="group-hover:scale-110 transition-transform flex items-center justify-center h-8 w-8">
               <Image
-                src={`/lang-icons/${skill.icon}.png`}
+                src={skill.icon}
                 alt="skill"
                 width={32}
                 height={32}

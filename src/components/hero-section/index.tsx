@@ -56,6 +56,7 @@ export function HeroSection() {
         <Image
           src="/arthurzambao.png"
           alt="Arthur Zambão"
+          loading="eager"
           width={300}
           height={300}
           className="rounded-full object-cover border-4 border-slate-900 group-hover:scale-105 transition-transform duration-300"
