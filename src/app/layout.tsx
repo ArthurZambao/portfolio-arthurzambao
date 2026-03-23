@@ -40,7 +40,7 @@ export default function RootLayout({
           playsInline
           className="fixed inset-0 w-full h-full object-cover -z-10"
         >
-          <source src="/videos/bg-video-reverb.mp4" type="video/mp4" />
+          <source src="/bg-video-reverb.mp4" type="video/mp4" />
         </video>
 
         {/* 🌑 OVERLAY */}
