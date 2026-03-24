@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 
 export function useTypewriterLoop(words: string[], speed = 80, delay = 2000) {
