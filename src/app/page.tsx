@@ -10,8 +10,8 @@ export default function PortfolioPage() {
   return (
     <div className="min-h-screen flex flex-col text-slate-300 font-sans selection:bg-cyan-500 selection:text-slate-950">
       <div className="flex-1">
-        <div className="max-w-400 mx-auto p-4 md:p-8 flex flex-col md:flex-row gap-8">
-          <main className="flex-1 sm:space-y-12 space-y-8 md:p-6 p-0 rounded-2xl">
+        <div className="max-w-400 mx-auto p-4 md:p-8 flex flex-col md:flex-row gap-10">
+          <main className="flex-1 sm:space-y-14 space-y-10 md:p-6 p-0 rounded-2xl">
             <HeroSection />
             <AboutMe />
             <Projects />
