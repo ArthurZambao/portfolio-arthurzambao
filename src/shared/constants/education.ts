@@ -1,3 +1,4 @@
 export const education = [
-  { institution: 'Etec de Guarulhos', details: 'Técnico em Análise e Desenvolvimento de Sistemas', date: '2023 - 2025' },
+  { institution: 'FIAP', details: 'Análise e Desenvolvimento de Sistemas', date: '2026 - Em Andamento', period: 'Noturno' },
+  { institution: 'Etec de Guarulhos', details: 'Técnico em Desenvolvimento de Sistemas', date: '2023 - 2025', period: 'Matutino' },
 ];
