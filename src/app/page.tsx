@@ -1,30 +1,47 @@
-import { AboutMe } from "@/components/about-me";
-import { Courses } from "@/components/courses";
+"use client";
+import { useState, useEffect } from "react";
+import { GlobalStyles } from "@/components/global-styles";
+import { Navbar } from "@/components/navbar";
+import { Hero } from "@/components/hero";
+import { About } from "@/components/about";
 import { Education } from "@/components/education";
-import { Footer } from "@/components/footer";
-import { HeroSection } from "@/components/hero-section";
-import { ProgramHabilities } from "@/components/programHabilities";
+import { Courses } from "@/components/courses";
 import { Projects } from "@/components/projects";
+import { Skills } from "@/components/skills";
+import { Contact } from "@/components/contact";
+import { Footer } from "@/components/footer";
 
-export default function PortfolioPage() {
+export default function App() {
+  const [activeSection, setActiveSection] = useState("hero");
+
+  useEffect(() => {
+    const sections = ["hero", "about", "education", "courses", "projects", "skills", "contact"];
+    const observers = sections.map((id) => {
+      const el = document.getElementById(id);
+      if (!el) return null;
+      const obs = new IntersectionObserver(
+        ([e]) => { if (e.isIntersecting) setActiveSection(id); },
+        { threshold: 0.4 }
+      );
+      obs.observe(el);
+      return obs;
+    });
+    return () => observers.forEach((o) => o?.disconnect());
+  }, []);
+
   return (
-    <div className="min-h-screen flex flex-col text-slate-300 font-sans selection:bg-cyan-500 selection:text-slate-950">
-      <div className="flex-1">
-        <div className="max-w-400 mx-auto p-4 md:p-8 flex flex-col md:flex-row gap-10">
-          <main className="flex-1 sm:space-y-14 space-y-10 md:p-6 p-0 rounded-2xl">
-            <HeroSection />
-            <AboutMe />
-            <Projects />
-          </main>
-
-          <aside className="w-full md:w-100 lg:w-120 space-y-10">
-            <ProgramHabilities />
-            <Courses />
-            <Education />
-          </aside>
-        </div>
-      </div>
+    <>
+      <GlobalStyles />
+      <div className="scanline-overlay" />
+      <Navbar activeSection={activeSection} />
+      <Hero />
+      <About />
+      <Education />
+      <Courses />
+      <Projects />
+      <Skills />
+      <Contact />
       <Footer />
-    </div>
+    </>
   );
 }
