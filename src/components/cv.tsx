@@ -118,11 +118,11 @@ export const CV = () => {
                                 📄
                             </div>
 
-                            <h3 className="font-orbitron" style={{ fontSize: 18, fontWeight: 700, color: "#cce8ff", letterSpacing: "0.05em" }}>
-                                CV.PDF
+                            <h3 className="font-orbitron" style={{ fontSize: 18, fontWeight: 700, color: "#cce8ff", letterSpacing: "0.05em", textAlign: "center" }}>
+                                Curriculo - Arthur Zambão Leite.PDF
                             </h3>
 
-                            <p style={{ fontSize: 13, color: "#4a7fa5", lineHeight: 1.6, maxWidth: 300 }}>
+                            <p style={{ fontSize: 13, color: "#4a7fa5", lineHeight: 1.6, maxWidth: 300, textAlign: "center", margin: "0 auto" }}>
                                 Documento completo com experiências, educação e certificações
                             </p>
 
@@ -132,8 +132,8 @@ export const CV = () => {
                         </div>
 
                         <motion.a
-                            href="/CV.pdf"
-                            download="Arthur_Zambao_CV.pdf"
+                            href="/Curriculo - Arthur Zambão Leite.pdf"
+                            download="Curriculo - Arthur Zambão Leite.pdf"
                             whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(0,255,234,0.6)" }}
                             whileTap={{ scale: 0.98 }}
                             style={{
@@ -177,7 +177,7 @@ export const CV = () => {
                         <div className="font-mono" style={{ fontSize: 11, color: "#7c3aed", letterSpacing: "0.1em", marginBottom: 8, fontWeight: 600 }}>
                             INFO
                         </div>
-                        <p style={{ fontSize: 12, color: "#4a7fa5", lineHeight: 1.6 }}>
+                        <p style={{ fontSize: 12, color: "#4a7fa5", lineHeight: 1.6, textAlign: "center" }}>
                             O documento PDF contém informações detalhadas sobre minha formação acadêmica, experiência profissional, projetos realizados e habilidades técnicas. Recomendado para recrutadores.
                         </p>
                     </div>
