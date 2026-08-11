@@ -54,7 +54,7 @@ export const Skills = () => {
     return () => obs.disconnect();
   }, []);
 
-  const tools = ["Git", "Figma", "VSCode", "Postman", "Jira", "Notion", "Vercel", "Supabase", "Prisma", "GraphQL", "Stripe", "Firebase"];
+  const tools = ["Git", "Figma", "VSCode", "Postman", "Trello", "Notion", "Vercel", "Supabase", "Prisma", "GraphQL", "Stripe", "Firebase"];
 
   return (
     <section id="skills" ref={ref} style={{ padding: "clamp(80px, 10vw, 120px) 24px", maxWidth: 1200, margin: "0 auto" }}>

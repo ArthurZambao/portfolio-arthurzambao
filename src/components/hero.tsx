@@ -56,14 +56,14 @@ export const Hero = () => {
       {/* Ambient orbs */}
       <div style={{
         position: "absolute", top: "10%", right: "5%",
-        width: 400, height: 400,
+        width: "min(400px, 50vw)", height: "min(400px, 50vw)",
         background: "radial-gradient(circle, rgba(0,255,234,0.06) 0%, transparent 70%)",
         borderRadius: "50%", pointerEvents: "none",
         animation: "float 8s ease-in-out infinite",
       }} />
       <div style={{
         position: "absolute", bottom: "10%", left: "10%",
-        width: 300, height: 300,
+        width: "min(300px, 50vw)", height: "min(300px, 50vw)",
         background: "radial-gradient(circle, rgba(124,58,237,0.08) 0%, transparent 70%)",
         borderRadius: "50%", pointerEvents: "none",
         animation: "float 10s ease-in-out infinite reverse",

@@ -1,5 +1,6 @@
 import "../styles/index.css";
 import type { Metadata } from "next";
+import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
 
 export const metadata: Metadata = {
   title: "Arthur Zambão | Portfolio",
@@ -13,7 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
-      <body>{children}</body>
+      <body>
+        <SmoothScrollProvider>{children}</SmoothScrollProvider>
+      </body>
     </html>
   );
 }

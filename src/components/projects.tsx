@@ -141,85 +141,87 @@ export function Projects() {
       </div>
 
       {/* Floating Image Follower — desktop only */}
-      <motion.div
-        animate={{
-          opacity: hoveredId !== null ? 1 : 0,
-          scale: hoveredId !== null ? 1 : 0.5,
-          rotate: hoveredId !== null ? -2 : -10,
-        }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          x: smoothX,
-          y: smoothY,
-          pointerEvents: "none",
-          zIndex: 9999,
-        }}
-        className="hidden md:block"
-      >
-        <div style={{
-          transform: "translate(-50%, -110%)",
-          width: 380,
-          height: 240,
-          borderRadius: 8,
-          overflow: "hidden",
-          border: "1px solid rgba(0,255,234,0.3)",
-          boxShadow: "0 20px 60px -12px rgba(0,0,0,0.8), 0 0 30px rgba(0,255,234,0.15)",
-          background: "#080f1e",
-          position: "relative",
-        }}>
-          {/* Scanline overlay on image */}
+      {hoveredId !== null && (
+        <motion.div
+          animate={{
+            opacity: hoveredId !== null ? 1 : 0,
+            scale: hoveredId !== null ? 1 : 0.5,
+            rotate: hoveredId !== null ? -2 : -10,
+          }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            x: smoothX,
+            y: smoothY,
+            pointerEvents: "none",
+            zIndex: 9999,
+          }}
+          className="hidden md:block"
+        >
           <div style={{
-            position: "absolute", inset: 0, zIndex: 3, pointerEvents: "none",
-            background: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px)",
-          }} />
-          {/* Gradient overlay */}
-          <div style={{
-            position: "absolute", inset: 0, zIndex: 2,
-            background: "linear-gradient(to top, rgba(8,15,30,0.6) 0%, transparent 40%, transparent 80%, rgba(8,15,30,0.3) 100%)",
-          }} />
-          {/* Corner accents */}
-          <div style={{ position: "absolute", top: 6, left: 6, zIndex: 4 }}>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M0 14 L0 0 L14 0" stroke="#00ffea" strokeWidth="1.5" fill="none" opacity="0.7" />
-            </svg>
-          </div>
-          <div style={{ position: "absolute", bottom: 6, right: 6, zIndex: 4, transform: "rotate(180deg)" }}>
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M0 14 L0 0 L14 0" stroke="#00ffea" strokeWidth="1.5" fill="none" opacity="0.7" />
-            </svg>
-          </div>
-          {/* Project title badge */}
-          <div style={{
-            position: "absolute", bottom: 10, left: 10, zIndex: 5,
-            padding: "4px 10px",
-            background: "rgba(0,255,234,0.1)",
+            transform: "translate(-50%, -110%)",
+            width: 380,
+            height: 240,
+            borderRadius: 8,
+            overflow: "hidden",
             border: "1px solid rgba(0,255,234,0.3)",
-            backdropFilter: "blur(8px)",
+            boxShadow: "0 20px 60px -12px rgba(0,0,0,0.8), 0 0 30px rgba(0,255,234,0.15)",
+            background: "#080f1e",
+            position: "relative",
           }}>
-            <span className="font-mono" style={{ fontSize: 9, color: "#00ffea", letterSpacing: "0.2em" }}>
-              {hoveredProject?.title ?? ""}
-            </span>
-          </div>
+            {/* Scanline overlay on image */}
+            <div style={{
+              position: "absolute", inset: 0, zIndex: 3, pointerEvents: "none",
+              background: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px)",
+            }} />
+            {/* Gradient overlay */}
+            <div style={{
+              position: "absolute", inset: 0, zIndex: 2,
+              background: "linear-gradient(to top, rgba(8,15,30,0.6) 0%, transparent 40%, transparent 80%, rgba(8,15,30,0.3) 100%)",
+            }} />
+            {/* Corner accents */}
+            <div style={{ position: "absolute", top: 6, left: 6, zIndex: 4 }}>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M0 14 L0 0 L14 0" stroke="#00ffea" strokeWidth="1.5" fill="none" opacity="0.7" />
+              </svg>
+            </div>
+            <div style={{ position: "absolute", bottom: 6, right: 6, zIndex: 4, transform: "rotate(180deg)" }}>
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M0 14 L0 0 L14 0" stroke="#00ffea" strokeWidth="1.5" fill="none" opacity="0.7" />
+              </svg>
+            </div>
+            {/* Project title badge */}
+            <div style={{
+              position: "absolute", bottom: 10, left: 10, zIndex: 5,
+              padding: "4px 10px",
+              background: "rgba(0,255,234,0.1)",
+              border: "1px solid rgba(0,255,234,0.3)",
+              backdropFilter: "blur(8px)",
+            }}>
+              <span className="font-mono" style={{ fontSize: 9, color: "#00ffea", letterSpacing: "0.2em" }}>
+                {hoveredProject?.title ?? ""}
+              </span>
+            </div>
 
-          <Image
-            src={hoveredProject?.image ?? projectsData[0].image}
-            alt="Preview"
-            fill
-            sizes="380px"
-            priority
-            style={{ objectFit: "cover", zIndex: 1 }}
-            onError={(e) => {
-              const target = e.target as HTMLImageElement;
-              if (!target.src.includes('unsplash')) {
-                target.src = 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1080&auto=format&fit=crop';
-              }
-            }}
-          />
-        </div>
-      </motion.div>
+            <Image
+              src={hoveredProject?.image ?? projectsData[0].image}
+              alt="Preview"
+              fill
+              sizes="380px"
+              priority
+              style={{ objectFit: "cover", zIndex: 1 }}
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                if (!target.src.includes('unsplash')) {
+                  target.src = 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1080&auto=format&fit=crop';
+                }
+              }}
+            />
+          </div>
+        </motion.div>
+      )}
     </section>
   );
 }
