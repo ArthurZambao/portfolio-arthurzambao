@@ -47,7 +47,6 @@ const SkillBar = ({ name, level, experience, visible }: { name: string; level: n
 export const Skills = () => {
   const ref = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
-
   useEffect(() => {
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.2 });
     if (ref.current) obs.observe(ref.current);
