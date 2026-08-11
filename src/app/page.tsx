@@ -9,13 +9,14 @@ import { Courses } from "@/components/courses";
 import { Projects } from "@/components/projects";
 import { Skills } from "@/components/skills";
 import { Contact } from "@/components/contact";
+import { CV } from "@/components/cv";
 import { Footer } from "@/components/footer";
 
 export default function App() {
   const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
-    const sections = ["hero", "about", "education", "courses", "projects", "skills", "contact"];
+    const sections = ["hero", "about", "education", "courses", "projects", "skills", "cv", "contact"];
     const observers = sections.map((id) => {
       const el = document.getElementById(id);
       if (!el) return null;
@@ -40,6 +41,7 @@ export default function App() {
       <Courses />
       <Projects />
       <Skills />
+      <CV />
       <Contact />
       <Footer />
     </>

@@ -1,5 +1,7 @@
 packages:
   - '.'
+overrides:
+  vite: 6.3.5
 supportedArchitectures:
   os:
     - linux

@@ -47,14 +47,13 @@ const SkillBar = ({ name, level, experience, visible }: { name: string; level: n
 export const Skills = () => {
   const ref = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
-
   useEffect(() => {
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.2 });
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
   }, []);
 
-  const tools = ["Git", "Figma", "VSCode", "Postman", "Jira", "Notion", "Vercel", "Supabase", "Prisma", "GraphQL", "Stripe", "Firebase"];
+  const tools = ["Git", "Figma", "VSCode", "Postman", "Trello", "Notion", "Vercel", "Supabase", "Prisma", "GraphQL", "Stripe", "Firebase"];
 
   return (
     <section id="skills" ref={ref} style={{ padding: "clamp(80px, 10vw, 120px) 24px", maxWidth: 1200, margin: "0 auto" }}>

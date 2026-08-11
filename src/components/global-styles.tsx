@@ -4,13 +4,18 @@ export const GlobalStyles = () => (
 
     * { box-sizing: border-box; }
 
-    html { scroll-behavior: smooth; }
+    html { 
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
 
     body {
       background: #050a14;
       color: #cce8ff;
       font-family: 'Inter', sans-serif;
       overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
     }
 
     ::-webkit-scrollbar { width: 4px; }
