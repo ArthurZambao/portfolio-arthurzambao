@@ -16,7 +16,7 @@ const coursesData = [
     course: "Aplicações Web com Java e Spring",
     duration: "56h",
     tech: ["Java", "Spring", "Spring Boot", "SQL", "PostgreSQL", "Modelagem de Dados", "Consultas SQL", "Procedimentos Armazenados", "Triggers", "Performance"],
-    link: "https://www.alura.com.br/"
+    link: "https://cursos.alura.com.br/degree/certificate/05aed28a-c084-4d2b-b7c0-fd88b854f90f?lang"
   },
   {
     institution: "Udemy",
