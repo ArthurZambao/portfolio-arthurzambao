@@ -16,7 +16,7 @@ export const CV = () => {
     const highlights = [
         { title: "Experiência", desc: "Full-Stack Development com React, Node.js e Java" },
         { title: "Educação", desc: "Análise e Desenvolvimento de Sistemas (FIAP)" },
-        { title: "Habilidades", desc: "Next.js, TypeScript, NestJS, PostgreSQL, Docker" },
+        { title: "Habilidades", desc: "Java, Spring Boot, React.js, TypeScript, PostgreSQL, Docker" },
         { title: "Idiomas", desc: "Português Fluente / Inglês Intermediário" },
     ];
 
