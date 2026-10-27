@@ -16,8 +16,8 @@ export const CV = () => {
     const highlights = [
         { title: "Experiência", desc: "Full-Stack Development com React, Node.js e Java" },
         { title: "Educação", desc: "Análise e Desenvolvimento de Sistemas (FIAP)" },
-        { title: "Habilidades", desc: "Java, Spring Boot, React.js, TypeScript, PostgreSQL, Docker" },
-        { title: "Idiomas", desc: "Português Fluente / Inglês Intermediário" },
+        { title: "Premiações", desc: "Next FIAP 2026 — 3º lugar entre 50 equipes" },
+        { title: "Idiomas", desc: "Português Nativo / Inglês Avançado" },
     ];
 
     return (
@@ -127,7 +127,7 @@ export const CV = () => {
                             </p>
 
                             <div className="font-mono" style={{ fontSize: 11, color: "#2a4a6a", letterSpacing: "0.1em", marginTop: 8 }}>
-                                SIZE: ~2.5 MB
+                                SIZE: ~65 KB
                             </div>
                         </div>
 
