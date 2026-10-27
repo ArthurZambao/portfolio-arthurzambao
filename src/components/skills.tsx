@@ -65,7 +65,7 @@ export const Skills = () => {
       >
         <div className="section-label" style={{ marginBottom: 16, display: "flex", alignItems: "center", gap: 12 }}>
           <span style={{ display: "inline-block", width: 40, height: 1, background: "#00ffea" }} />
-          <span style={{ color: "#00ffea44" }}>// </span>05 — SKILLS.JSON
+          <span style={{ color: "#00ffea44" }}>// </span>06 — SKILLS.JSON
         </div>
         <h2 className="font-orbitron" style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 800, color: "#cce8ff", lineHeight: 1.1 }}>
           Arsenal Técnico

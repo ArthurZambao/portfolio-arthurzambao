@@ -7,6 +7,7 @@ import { About } from "@/components/about";
 import { Education } from "@/components/education";
 import { Courses } from "@/components/courses";
 import { Projects } from "@/components/projects";
+import { Awards } from "@/components/awards";
 import { Skills } from "@/components/skills";
 import { Contact } from "@/components/contact";
 import { CV } from "@/components/cv";
@@ -16,7 +17,7 @@ export default function App() {
   const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
-    const sections = ["hero", "about", "education", "courses", "projects", "skills", "cv", "contact"];
+    const sections = ["hero", "about", "education", "courses", "projects", "awards", "skills", "cv", "contact"];
     const observers = sections.map((id) => {
       const el = document.getElementById(id);
       if (!el) return null;
@@ -40,6 +41,7 @@ export default function App() {
       <Education />
       <Courses />
       <Projects />
+      <Awards />
       <Skills />
       <CV />
       <Contact />
