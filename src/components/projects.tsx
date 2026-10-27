@@ -2,9 +2,46 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, useMotionValue, useSpring } from 'motion/react';
 import Image from 'next/image';
 
-const projectsData = [
+type ProjectLink = {
+  label: string;
+  href: string;
+};
+
+type Project = {
+  id: string;
+  title: string;
+  category: string;
+  desc: string;
+  tech: string[];
+  image: string;
+  status: string;
+  link: string;
+  cta?: string;
+  extraLinks?: ProjectLink[];
+  preview?: "landscape" | "portrait";
+};
+
+const projectsData: Project[] = [
   {
     id: "01",
+    title: "Soulie",
+    category: "Mobile Full-Stack",
+    desc: "App de bem-estar sustentável gamificado. Você cuida de uma planta (o Soulie), cumpre missões ecológicas com foto validada por IA, ganha XP e evolui o jardim junto da comunidade. API Java (Spring Boot) + pipeline Python de visão computacional.",
+    tech: ["React Native", "TypeScript", "Spring Boot", "JPA", "Hibernate", "Mockito", "JUnit", "PostgreSQL", "Flyway", "Python"],
+    image: "/soulie.png",
+    status: "DEPLOYED",
+    link: "https://soulie-app.vercel.app/login",
+    cta: "WEB EXPO →",
+    extraLinks: [
+      { label: "GITHUB", href: "https://github.com/ArthurZambao/soulie-app" },
+      { label: "APK", href: "https://github.com/ArthurZambao/soulie-app/releases/download/v2.0.0/soulie-app.apk" },
+      { label: "API JAVA", href: "https://github.com/Nexus-Solution-FIAP/java-soulie" },
+      { label: "API PYTHON", href: "https://github.com/Nexus-Solution-FIAP/soulie-validation-pictures" },
+    ],
+    preview: "portrait",
+  },
+  {
+    id: "02",
     title: "Incita Inc.",
     category: "Full-Stack Developer",
     desc: "Plataforma educacional focada em aprendizado gamificado, com trilhas de conhecimento adaptativas e gerenciamento de competências.",
@@ -14,7 +51,7 @@ const projectsData = [
     link: "https://www.incita.online",
   },
   {
-    id: "02",
+    id: "03",
     title: "D.A.F.E Ltda.",
     category: "Full-Stack Developer",
     desc: "Plataforma desenvolvida para fortalecer a comunicação entre alunos e instituições de ensino, permitindo o envio de feedbacks e comunicados de forma prática e organizada.",
@@ -24,7 +61,7 @@ const projectsData = [
     link: "https://dafe-project.vercel.app/",
   },
   {
-    id: "03",
+    id: "04",
     title: "GymNotes Platform",
     category: "Full-Stack Developer",
     desc: "Aplicação web desenvolvida para facilitar o gerenciamento de fichas de treino. Permite criar treinos personalizados, registrar a frequência, acompanhar a evolução das cargas e manter um histórico do progresso.",
@@ -63,12 +100,13 @@ export function Projects() {
   }, [mouseX, mouseY]);
 
   const hoveredProject = projectsData.find(p => p.id === hoveredId);
+  const isPortraitPreview = hoveredProject?.preview === "portrait";
 
   return (
     <section id="projects" ref={ref} style={{ padding: "clamp(80px, 10vw, 120px) 24px", background: "#080f1e", position: "relative", overflow: "hidden" }}>
       <div className="grid-bg" style={{ position: "absolute", inset: 0, opacity: 0.5 }} />
 
-      <div style={{ maxWidth: 1200, margin: "0 auto", position: "relative" }}>
+      <div style={{ maxWidth: 1400, margin: "0 auto", position: "relative" }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={visible ? { opacity: 1, y: 0 } : {}}
@@ -84,7 +122,7 @@ export function Projects() {
           </h2>
         </motion.div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))", gap: 1, background: "rgba(0,255,234,0.06)" }}>
+        <div className="projects-grid">
           {projectsData.map((p, i) => (
             <motion.div
               key={p.id}
@@ -94,18 +132,18 @@ export function Projects() {
               className="cyber-card"
               onMouseEnter={() => setHoveredId(p.id)}
               onMouseLeave={() => setHoveredId(null)}
-              style={{ padding: "clamp(20px, 4vw, 32px)", position: "relative", cursor: "pointer", overflow: "hidden" }}
+              style={{ padding: "clamp(18px, 2.4vw, 28px)", position: "relative", cursor: "pointer", overflow: "hidden", display: "flex", flexDirection: "column" }}
             >
               <div style={{ position: "absolute", top: 0, right: 0, width: 80, height: 80, overflow: "hidden", opacity: hoveredId === p.id ? 0.15 : 0.05, transition: "opacity 0.3s" }}>
                 <div className="font-orbitron" style={{ fontSize: 80, fontWeight: 900, color: "#00ffea", lineHeight: 1, position: "absolute", top: -10, right: -10 }}>{p.id}</div>
               </div>
 
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 20 }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 20, gap: 8 }}>
                 <span className="hex-badge">{p.category}</span>
                 <span className="font-mono" style={{
                   fontSize: 9, padding: "3px 8px", letterSpacing: "0.2em",
                   border: "1px solid rgba(0,255,88,0.3)", color: "#00ff88",
-                  background: "rgba(0,255,88,0.05)",
+                  background: "rgba(0,255,88,0.05)", flexShrink: 0,
                 }}>
                   {p.status}
                 </span>
@@ -125,15 +163,36 @@ export function Projects() {
                 ))}
               </div>
 
-              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <div style={{ flex: 1, height: 1, background: "rgba(0,255,234,0.1)" }} />
-                <a
-                  href={p.link}
-                  className="font-mono"
-                  style={{ fontSize: 11, color: hoveredId === p.id ? "#00ffea" : "#2a4a6a", letterSpacing: "0.2em", textDecoration: "none", transition: "color 0.3s" }}
-                >
-                  ACESSAR →
-                </a>
+              <div style={{ marginTop: "auto", display: "flex", flexDirection: "column", gap: 12 }}>
+                {p.extraLinks && p.extraLinks.length > 0 && (
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "8px 12px" }}>
+                    {p.extraLinks.map((l) => (
+                      <a
+                        key={l.href}
+                        href={l.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="project-link"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {l.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+
+                <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <div style={{ flex: 1, height: 1, background: "rgba(0,255,234,0.1)" }} />
+                  <a
+                    href={p.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-mono"
+                    style={{ fontSize: 11, color: hoveredId === p.id ? "#00ffea" : "#2a4a6a", letterSpacing: "0.2em", textDecoration: "none", transition: "color 0.3s" }}
+                  >
+                    {p.cta ?? "ACESSAR →"}
+                  </a>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -162,9 +221,9 @@ export function Projects() {
         >
           <div style={{
             transform: "translate(-50%, -110%)",
-            width: 380,
-            height: 240,
-            borderRadius: 8,
+            width: isPortraitPreview ? 220 : 380,
+            height: isPortraitPreview ? 420 : 240,
+            borderRadius: isPortraitPreview ? 24 : 8,
             overflow: "hidden",
             border: "1px solid rgba(0,255,234,0.3)",
             boxShadow: "0 20px 60px -12px rgba(0,0,0,0.8), 0 0 30px rgba(0,255,234,0.15)",
@@ -209,9 +268,9 @@ export function Projects() {
               src={hoveredProject?.image ?? projectsData[0].image}
               alt="Preview"
               fill
-              sizes="380px"
+              sizes={isPortraitPreview ? "220px" : "380px"}
               priority
-              style={{ objectFit: "cover", zIndex: 1 }}
+              style={{ objectFit: "cover", objectPosition: isPortraitPreview ? "center top" : "center", zIndex: 1 }}
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
                 if (!target.src.includes('unsplash')) {

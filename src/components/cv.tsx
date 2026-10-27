@@ -16,8 +16,8 @@ export const CV = () => {
     const highlights = [
         { title: "Experiência", desc: "Full-Stack Development com React, Node.js e Java" },
         { title: "Educação", desc: "Análise e Desenvolvimento de Sistemas (FIAP)" },
-        { title: "Habilidades", desc: "Java, Spring Boot, React.js, TypeScript, PostgreSQL, Docker" },
-        { title: "Idiomas", desc: "Português Fluente / Inglês Intermediário" },
+        { title: "Premiações", desc: "Next FIAP 2026 — 3º lugar entre 50 equipes" },
+        { title: "Idiomas", desc: "Português Nativo / Inglês Avançado" },
     ];
 
     return (
@@ -30,7 +30,7 @@ export const CV = () => {
             >
                 <div className="section-label" style={{ marginBottom: 16, display: "flex", alignItems: "center", gap: 12 }}>
                     <span style={{ display: "inline-block", width: 40, height: 1, background: "#00ffea" }} />
-                    <span style={{ color: "#00ffea44" }}>// </span>07 — RESUME.PDF
+                    <span style={{ color: "#00ffea44" }}>// </span>08 — RESUME.PDF
                 </div>
                 <h2 className="font-orbitron" style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", fontWeight: 800, color: "#cce8ff", lineHeight: 1.1 }}>
                     Meu Currículo
@@ -127,7 +127,7 @@ export const CV = () => {
                             </p>
 
                             <div className="font-mono" style={{ fontSize: 11, color: "#2a4a6a", letterSpacing: "0.1em", marginTop: 8 }}>
-                                SIZE: ~2.5 MB
+                                SIZE: ~65 KB
                             </div>
                         </div>
 

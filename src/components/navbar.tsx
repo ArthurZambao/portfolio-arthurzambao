@@ -18,6 +18,7 @@ export const Navbar = ({ activeSection }: { activeSection: string }) => {
     { id: "education", label: "Academic" },
     { id: "courses", label: "Courses" },
     { id: "projects", label: "Projects" },
+    { id: "awards", label: "Awards" },
     { id: "skills", label: "Skills" },
     { id: "cv", label: "Resume" },
     { id: "contact", label: "Contact" },

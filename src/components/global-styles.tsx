@@ -286,8 +286,74 @@ export const GlobalStyles = () => (
       transform: translateY(-7px) rotate(-45deg);
     }
 
-    /* ── Responsive: mobile ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(0,255,234,0.06);
+    }
+    .project-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-decoration: none;
+      color: #2a4a6a;
+      transition: color 0.3s;
+      white-space: nowrap;
+    }
+    .project-link:hover { color: #00ffea; }
+
+    .awards-bento {
+      display: grid;
+      grid-template-columns: 1fr 1fr 0.82fr;
+      grid-template-rows: auto 280px;
+      gap: 1px;
+      background: rgba(0,255,234,0.06);
+    }
+    .awards-card {
+      grid-column: 1 / 3;
+      grid-row: 1;
+    }
+    .awards-photo {
+      position: relative;
+      overflow: hidden;
+      min-height: 280px;
+      background: #080f1e;
+    }
+    .awards-photo-portrait {
+      grid-column: 3;
+      grid-row: 1 / 3;
+      min-height: 100%;
+      height: 100%;
+    }
+    .awards-photo img {
+      transition: transform 0.5s ease;
+    }
+    .awards-photo:hover img {
+      transform: scale(1.04);
+    }
+
+    /* ── Responsive: tablet / mobile ── */
+    @media (max-width: 1100px) {
+      .projects-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 900px) {
+      .awards-bento {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto 420px 240px;
+      }
+      .awards-card { grid-column: 1 / 3; grid-row: 1; }
+      .awards-photo-portrait { grid-column: 1 / 3; grid-row: 2; min-height: 420px; }
+    }
     @media (max-width: 767px) {
+      .projects-grid { grid-template-columns: 1fr; }
+      .awards-bento {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 420px 220px 220px;
+      }
+      .awards-card { grid-column: 1; grid-row: 1; }
+      .awards-photo-portrait { grid-column: 1; grid-row: 2; min-height: 420px; }
+      .awards-photo { min-height: 220px; }
       .footer-inner {
         flex-direction: column !important;
         align-items: center !important;
